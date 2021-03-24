@@ -34,6 +34,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.useSupportLibrary = true
+
+        buildConfigField 'String', 'BASE_URL_API', '\"' + appConf.serverUrl +'\"'
     }
 
     buildTypes {
@@ -55,7 +57,8 @@ android {
         freeCompilerArgs += [                                                                       // For Kotlin Coroutines Experiment Features
             "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-Xuse-experimental=kotlinx.coroutines.ObsoleteCoroutinesApi",
-            "-Xuse-experimental=kotlinx.coroutines.FlowPreview"]
+            "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
+            "-Xuse-experimental=kotlinx.serialization.ExperimentalSerializationApi"]
     }
 
     buildFeatures {
@@ -125,7 +128,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"                 // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$versions.lifecycle"
+
+    implementation "androidx.room:room-runtime:$versions.roomDB"
+    kapt "androidx.room:room-compiler:$versions.roomDB"                                             // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$versions.roomDB"
 
     /*  Android JetPack Modules Ends */
 
@@ -137,6 +143,16 @@ dependencies {
      */
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+
+
+    // Network/Api calling Dependencies
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:$versions.okHttp"))
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$versions.kxSzRetrofitAdapter"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$versions.retrofitCortAdapter"
 
     // Json Parsing
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$versions.kotlinxSerialization"

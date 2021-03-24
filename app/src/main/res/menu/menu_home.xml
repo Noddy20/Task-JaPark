@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuItemChangeTheme"
+        android:title="@string/title_change_theme"/>
+
+    <item
+        android:id="@+id/menuItemClearCache"
+        android:title="@string/title_clear_cache"/>
+</menu>

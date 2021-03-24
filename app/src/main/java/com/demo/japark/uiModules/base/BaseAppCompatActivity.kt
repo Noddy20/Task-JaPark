@@ -17,6 +17,7 @@ import com.demo.japark.data.AppSharedPrefs
 import com.demo.japark.models.sealed.SealedNetState
 import com.demo.japark.uiModules.dialogs.AppDialogs
 import com.demo.japark.utils.InternetUtil
+import com.demo.japark.utils.observeNetState
 import dagger.hilt.android.qualifiers.ApplicationContext
 import timber.log.Timber
 import javax.inject.Inject
@@ -54,7 +55,7 @@ abstract class BaseAppCompatActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         if (registerNetReceiver) {
-            mInternetUtil.observe(this, ::networkStatChanged)
+            mInternetUtil.observeNetState(this, ::networkStatChanged)
         }
     }
 
@@ -72,7 +73,10 @@ abstract class BaseAppCompatActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) onBackPressed()
+        when(item.itemId){
+            android.R.id.home -> onBackPressed()
+            R.id.menuItemChangeTheme -> openThemeChooser()
+        }
         return super.onOptionsItemSelected(item)
     }
 

@@ -2,6 +2,8 @@
 <resources>
 
     <!-- Main App Colors -->
+    <color name="colorAccent">#BD012A</color>
+
     <color name="colorDark">#141520</color>
     <color name="colorDarkX">#1E212C</color>
 
@@ -12,11 +14,11 @@
     <color name="colorTextBlue">#00213D</color>
     <color name="colorTextLight">#1B1B22</color>
 
-
+    <!-- Alpha Colors -->
+    <color name="colorTransparent">#00000000</color>
 
     <color name="colorPrimary">#20232B</color>
     <color name="colorPrimaryDark">#16181D</color>
-    <color name="colorAccent">#BD012A</color>
     <color name="colorBackground">#1A1A1A</color>
 
     <color name="colorPrimaryLight">#535A6F</color>
@@ -49,7 +51,5 @@
     <color name="colorTextAccent">@color/colorAccent</color>
     <color name="colorTextSecondary">@color/colorPrimaryLight</color>
 
-    <!-- Alpha Colors -->
-    <color name="colorTransparent">#00000000</color>
 
 </resources>

@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import com.demo.japark.models.sealed.SealedNetState
 import com.demo.japark.utils.extFunctions.getNetState
@@ -79,4 +80,11 @@ class InternetUtil @Inject constructor(@ApplicationContext private val appContex
             .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
             .build()
     }
+
 }
+
+//To prevent livedata observer from receiving data again and again
+inline fun LiveData<SealedNetState>.observeNetState(owner: LifecycleOwner, crossinline onEventUnhandledContent: (SealedNetState) -> Unit) {
+    observe(owner, { it?.getContentIfNotHandled()?.let(onEventUnhandledContent) })
+}
+

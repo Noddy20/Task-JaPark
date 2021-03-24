@@ -51,7 +51,7 @@ class AppDialogs @Inject constructor(private val mActivity: Activity) {
                 Timber.d("showCountDownSelectDialog Selected Pos -> $which")
                 selCountDownPos = which
             }
-            .setPositiveButton(R.string.action_select){ dialog, _ ->
+            .setPositiveButton(R.string.action_select){ _, _ ->
                 val selTheme = when(selCountDownPos) {
                     1 -> AppCompatDelegate.MODE_NIGHT_NO
                     2 -> AppCompatDelegate.MODE_NIGHT_YES
@@ -60,7 +60,7 @@ class AppDialogs @Inject constructor(private val mActivity: Activity) {
                 onSelect(selTheme)
                 dismiss()
             }
-            .setNegativeButton(R.string.action_cancel){ dialog, _ ->
+            .setNegativeButton(R.string.action_cancel){ _, _ ->
                 dismiss()
             }.create()
 

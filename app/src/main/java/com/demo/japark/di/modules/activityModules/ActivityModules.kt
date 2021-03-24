@@ -10,7 +10,7 @@ import dagger.hilt.android.scopes.ActivityScoped
 
 @Module
 @InstallIn(ActivityComponent::class)
-object AppModule {
+object ActivityModules {
 
     @Provides
     @ActivityScoped

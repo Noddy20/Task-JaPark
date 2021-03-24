@@ -3,6 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.demo.japark.models.ResponseStatus"/>
+
+        <variable
+            name="bStatus"
+            type="com.demo.japark.models.ResponseStatus" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,6 +42,8 @@
                     <androidx.core.widget.NestedScrollView
                         android:layout_width="0dp"
                         android:layout_height="0dp"
+                        android:visibility="gone"
+                        bind_isVisible="@{bStatus == ResponseStatus.SUCCESS}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -40,14 +51,16 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/_16sdp"
+                            android:paddingHorizontal="@dimen/_16sdp">
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="?colorTextMain"
+                                android:textColor="?colorTextDark"
                                 android:text="@string/title_cities_japan"
                                 android:textSize="@dimen/_12ssp"
-                                android:padding="@dimen/_5sdp"
+                                android:paddingVertical="@dimen/_5sdp"
                                 />
                             <com.mlsdev.animatedrv.AnimatedRecyclerView
                                 android:id="@+id/rvCities"
@@ -55,16 +68,18 @@
                                 android:layout_height="wrap_content"
                                 app:layoutManagerType="linear"
                                 app:animationDuration="600"
-                                app:layoutAnimation="@anim/layout_animation_from_scale"
+                                android:nestedScrollingEnabled="false"
+                                app:layoutAnimation="@anim/layout_animation_from_bottom"
                                 android:clipToPadding="false"
                                 />
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="?colorTextMain"
+                                android:textColor="?colorTextDark"
                                 android:text="@string/title_japanese_food"
                                 android:textSize="@dimen/_12ssp"
-                                android:padding="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:paddingVertical="@dimen/_5sdp"
                                 />
                             <com.mlsdev.animatedrv.AnimatedRecyclerView
                                 android:id="@+id/rvFood"
@@ -72,16 +87,51 @@
                                 android:layout_height="wrap_content"
                                 app:layoutManagerType="linear"
                                 app:animationDuration="600"
+                                android:nestedScrollingEnabled="false"
                                 app:layoutAnimation="@anim/layout_animation_from_scale"
                                 android:clipToPadding="false"
                                 />
                         </LinearLayout>
                     </androidx.core.widget.NestedScrollView>
 
+                    <!-- Error View -->
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:id="@+id/lottieViewError"
+                        bind_lottieFile="@{bStatus == ResponseStatus.NO_DATA? @string/lottie_empty_error_file_name:@string/lottie_other_error_file_name}"
+                        bind_playLottie="@{bStatus == ResponseStatus.ERROR}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        app:lottie_enableMergePathsForKitKatAndAbove="true"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="true"
+                        android:visibility="gone"
+                        />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvErrorMsg"
+                        bind_isVisible="@{bStatus == ResponseStatus.ERROR}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lottieViewError"
+                        android:gravity="center"
+                        android:textColor="?colorTextMain"
+                        android:text="@string/title_cities_japan"
+                        android:textSize="@dimen/_12ssp"
+                        android:padding="@dimen/_5sdp"
+                        android:visibility="gone"
+                        />
+
                     <!-- Loading View -->
                     <com.facebook.shimmer.ShimmerFrameLayout
                         android:layout_width="0dp"
                         android:layout_height="0dp"
+                        bind_startShimmer="@{bStatus == ResponseStatus.LOADING}"
                         android:background="?colorPrimary"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
