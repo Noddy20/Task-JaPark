@@ -1,0 +1,36 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    // An extra gradle file to manage ext variables
+    apply from: "$project.rootDir/dependencies.gradle"
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$versions.gradleBuildTool"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.daggerHiltAndroidVersion"                         // Hilt for Dagger
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$versions.kotlin"                                              // For Json Parsing
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com/'
+        }
+        maven{
+            url 'https://jitpack.io'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

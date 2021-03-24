@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">JaPark</string>
+    <string name="msg_you_are_online">You are back online</string>
+    <string name="msg_you_are_offline">You are offline!</string>
+    <string name="title_demo_app">Demo App</string>
+    <string name="title_change_theme">Change Theme</string>
+    <string name="title_home">Home</string>
+    <string name="title_select_theme">Select Theme :</string>
+    <string name="action_select">Select</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="title_cities_japan">Main Cities in Japan</string>
+    <string name="title_japanese_food">Most Popular Japanese Food</string>
+    <string name="cont_desc_city_image">City Image</string>
+    <string name="cont_desc_details">"Click for details "</string>
+</resources>

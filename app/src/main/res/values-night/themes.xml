@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.JaPark" parent="Theme.JaPark.BaseTheme">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorDark</item>
+        <item name="colorPrimaryVariant">@color/colorDarkX</item>
+        <item name="colorOnPrimary">@color/colorDark</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/colorDark</item>
+
+
+        <item name="colorTextDark">@color/colorTextLight</item>
+        <item name="colorTextMain">@color/colorTextDark</item>
+        <item name="colorTextPrimary">@color/colorWhite</item>
+
+    </style>
+</resources>

@@ -1,0 +1,73 @@
+/**
+ *
+ *   To store all the dependencies versions and other gradle variables
+ *
+ */
+
+ext.appConf = [
+
+        // SDK and Versions
+        appId                   : 'com.demo.japark',
+        minSdk                  : 21,
+        compileSdk              : 30,
+        versionCode             : 1,
+        versionName             : '1.0.0',
+        buildTools              : '30.0.2',
+
+]
+
+ext.versions = [
+
+        // Gradle Plugins
+        gradleBuildTool         : '4.1.3',
+        spotlessGradle          : '4.5.0',
+
+        // Kotlin
+        kotlin                  : '1.4.31',
+
+        // Core Library
+        appcompat               : '1.2.0',
+        ktxCore                 : '1.3.2',
+        ktxFragment             : '1.3.1',
+
+        // View and Layouts
+        material                : '1.3.0',
+        constraintLayout        : '2.0.4',
+        swiperefreshlayout      : '1.1.0',
+        animatedRV              : '2.0.0',
+        shimmer                 : '0.5.0',
+
+        // Animation
+        lottie                  : '3.3.1',
+        transitionsEverywhere   : '2.1.0',
+
+        // Resource
+        sdpSSP                  : '1.0.6',
+
+        // Image Processing
+        glide                   : '4.11.0',
+
+        // Android JetPack Modules
+        lifecycle                : '2.3.0',
+
+        // Dependency Injection
+        dagger                  : '2.33',
+        daggerHiltAndroidVersion: '2.33-beta',
+        daggerHiltVersion       : '1.0.0-beta01',
+        daggerHiltJetpack       : '1.0.0-alpha03',
+
+        // Kotlin Coroutines
+        coroutines               : '1.4.1',
+
+        // Json Parsing
+        kotlinxSerialization    : '1.0.0',
+
+        // Logging
+        timber                  : '4.7.1',
+
+        // Testing
+        junit                    : '4.13.2',
+        espressoCore             : '3.3.0',
+        junitExt                 : '1.1.2',
+
+]

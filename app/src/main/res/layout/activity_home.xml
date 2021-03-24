@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/actRootView"
+        tools:context=".uiModules.home.ActivityHome">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/includeToolbar"
+                layout="@layout/bar_toolbar_layout"
+                />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/swipeRefreshLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/includeToolbar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="?colorTextMain"
+                                android:text="@string/title_cities_japan"
+                                android:textSize="@dimen/_12ssp"
+                                android:padding="@dimen/_5sdp"
+                                />
+                            <com.mlsdev.animatedrv.AnimatedRecyclerView
+                                android:id="@+id/rvCities"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layoutManagerType="linear"
+                                app:animationDuration="600"
+                                app:layoutAnimation="@anim/layout_animation_from_scale"
+                                android:clipToPadding="false"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="?colorTextMain"
+                                android:text="@string/title_japanese_food"
+                                android:textSize="@dimen/_12ssp"
+                                android:padding="@dimen/_5sdp"
+                                />
+                            <com.mlsdev.animatedrv.AnimatedRecyclerView
+                                android:id="@+id/rvFood"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layoutManagerType="linear"
+                                app:animationDuration="600"
+                                app:layoutAnimation="@anim/layout_animation_from_scale"
+                                android:clipToPadding="false"
+                                />
+                        </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+
+                    <!-- Loading View -->
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="?colorPrimary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:padding="16dp"
+                        app:shimmer_duration="800"
+                        app:shimmer_auto_start="false"
+                        android:id="@+id/shimmerView"
+                        tools:visibility="gone"
+                        android:visibility="visible"
+                        android:clickable="false"
+                        android:focusable="false"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <include layout="@layout/shimmer_home_items"/>
+                            <include layout="@layout/shimmer_home_items"/>
+                            <include layout="@layout/shimmer_home_items"/>
+                            <include layout="@layout/shimmer_home_items"/>
+                        </LinearLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

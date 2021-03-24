@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main App Colors -->
+    <color name="colorDark">#141520</color>
+    <color name="colorDarkX">#1E212C</color>
+
+    <color name="colorLight">@color/colorWhite</color>
+    <color name="colorLightX">#ECF6FF</color>
+
+    <color name="colorTextDark">#98A9DC</color>
+    <color name="colorTextBlue">#00213D</color>
+    <color name="colorTextLight">#1B1B22</color>
+
+
+
+    <color name="colorPrimary">#20232B</color>
+    <color name="colorPrimaryDark">#16181D</color>
+    <color name="colorAccent">#BD012A</color>
+    <color name="colorBackground">#1A1A1A</color>
+
+    <color name="colorPrimaryLight">#535A6F</color>
+
+    <!-- Theme Colors -->
+    <color name="colorThemePrimary">@color/colorPrimary</color>
+    <color name="colorThemePrimaryDark">@color/colorPrimary</color>
+    <color name="colorThemeAccent">@color/colorAccent</color>
+    <color name="colorThemeBackground">#1A1A1A</color>
+
+    <!-- Basic Colors -->
+    <color name="colorYellow">#FFFC31</color>
+    <color name="colorGreen">#00C979</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorRedLight">#FF3447</color>
+
+    <!-- Background Colors -->
+    <color name="colorBgSnackBar">#333333</color>
+    <color name="colorBgGreyLight">#FBFBFB</color>
+    <color name="colorBgGrey">#F3F5F7</color>
+    <color name="colorBgWhite">@color/colorWhite</color>
+
+    <!-- Text Color -->
+    <color name="colorTextWhite">@color/colorWhite</color>
+    <color name="colorTextMain">#283440</color>
+    <color name="colorText">#8491a2</color>
+    <color name="colorTextPrimary">@color/colorPrimary</color>
+    <color name="colorTextAccent">@color/colorAccent</color>
+    <color name="colorTextSecondary">@color/colorPrimaryLight</color>
+
+    <!-- Alpha Colors -->
+    <color name="colorTransparent">#00000000</color>
+
+</resources>

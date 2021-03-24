@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.text.TextUtils"/>
+        <variable name="bModel" type="com.demo.japark.models.util.ModelSnackbarData"/>
+    </data>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_5sdp"
+        android:id="@+id/rowRootView"
+        bind_backgroundColorRes="@{bModel.bgColor ,default=@color/colorBgSnackBar}"
+        >
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:text="@{bModel.msg ?? ``}"
+            tools:text="@string/app_name"
+            android:id="@+id/snackTitle"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textSize="@dimen/_12ssp"
+            tools:textColor="@color/colorWhite"
+            bind_textColorRes="@{bModel.txtColor ,default=@color/colorTextWhite}"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            tools:textColor="@color/colorWhite"
+            bind_textColorRes="@{bModel.txtColor ,default=@color/colorTextWhite}"
+            android:text="@{bModel.action ?? ``}"
+            tools:text="@string/app_name"
+            bind_isVisible="@{!TextUtils.isEmpty(bModel.action)}"
+            android:visibility="gone"
+            android:id="@+id/snackBtn"
+            android:background="@color/colorTransparent"
+            />
+    </LinearLayout>
+</layout>
