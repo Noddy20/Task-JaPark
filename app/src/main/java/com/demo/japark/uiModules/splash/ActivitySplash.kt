@@ -28,13 +28,16 @@ class ActivitySplash : BaseAppCompatActivity() {
         super.onCreate(savedInstanceState)
         mDataBinding{
             setFullScreen()
-            clAppNames.post {                                                                       //Wait until the layout is ready to animate
+
+            //Wait until the layout is ready to animate
+            clAppNames.post {
                 splashTransition()
             }
         }
     }
 
     override fun onStart() {
+        // set full screen if not
         if (isActivityNotFullScreen()) {
             setFullScreen()
         }
@@ -46,7 +49,10 @@ class ActivitySplash : BaseAppCompatActivity() {
     }
 
     private fun ActivitySplashBinding.splashTransition(){
-        lifecycleScope.launchWhenResumed {                                                          // This code will only execute if lifecycle state is onResumed
+        // This code will only execute if lifecycle state is onResume
+        // Example : If device is locked and the app is installed and launched,
+        // bellow code will only execute when the device will be unlocked (in onResume)
+        lifecycleScope.launchWhenResumed {
             TransitionSet().apply {
                 duration = AppConstants.SPLASH_SCREEN_TRANSITION_DELAY
                 addTransition(Fade().addTarget(clAppNames))

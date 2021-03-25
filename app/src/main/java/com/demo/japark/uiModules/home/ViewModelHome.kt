@@ -12,6 +12,10 @@ import javax.inject.Inject
 class ViewModelHome @Inject constructor(
     private val mRepoHome: RepoHome): BaseViewModel() {
 
+    /**
+     *   Main API data observable
+     */
+
     private val paramsMainDataMLD = MutableLiveData<Unit>()
     fun callMainDataApi(){
         paramsMainDataMLD.value = Unit
@@ -20,6 +24,9 @@ class ViewModelHome @Inject constructor(
     val mainDataLD = paramsMainDataMLD.switchMap { mRepoHome.getMainResponse((ioCorContext)) }
 
 
+    /**
+     *    To clear data from persisted storage
+     */
 
     fun clearPersistedData(onClear: () -> Unit){
         viewModelScope.launchWithExcHandler {

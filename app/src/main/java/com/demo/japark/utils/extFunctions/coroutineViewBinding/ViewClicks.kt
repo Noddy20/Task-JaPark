@@ -10,8 +10,11 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.isActive
+
+/**
+ *    View click listener by using coroutines like RxViewBinding
+ */
 
 fun <T : View?> T?.launchViewClick(coroutineScope: CoroutineScope, throttle: Long = AppConstants.VIEW_CLICK_THROTTLE_FIRST, onClick: (view: View) -> Unit) {
     coroutineScope.launchWithExcHandler {
@@ -35,8 +38,4 @@ private fun View.listener(
     emitter: (View) -> Boolean
 ) = View.OnClickListener {
     if (scope.isActive) { emitter(this) }
-}
-
-inline fun <reified T : View?> views(vararg elements: T?): Array<T?> {
-    return arrayOf(*elements)
 }

@@ -9,6 +9,8 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
+// coroutine scope's launch extension function with our default exception handler
+
 fun CoroutineScope.launchWithExcHandler(
     context: CoroutineContext = coroutineContext,
     block: suspend CoroutineScope.() -> Unit

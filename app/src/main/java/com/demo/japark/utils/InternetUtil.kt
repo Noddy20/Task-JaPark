@@ -14,6 +14,11 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ *   InternetUtil to get realtime updates of network connectivity changes
+ *   by using LiveData so an observer can observe the status with it's lifecycle
+ */
+
 class InternetUtil @Inject constructor(@ApplicationContext private val appContext: Context) : LiveData<SealedNetState>() {
 
     companion object {

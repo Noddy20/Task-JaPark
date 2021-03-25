@@ -38,6 +38,9 @@
 
     </style>
 
+
+    <!-- Theme for Dialog-Style Activity -->
+
     <style name="Theme.JaPark.DialogActivity" parent="Base.Theme.MaterialComponents.Light.Dialog">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>

@@ -14,6 +14,6 @@ object ActivityModules {
 
     @Provides
     @ActivityScoped
-    fun provideDefaultExceptionHandler(mActivity: Activity) = AppDialogs(mActivity)
+    fun provideAppDialogs(mActivity: Activity) = AppDialogs(mActivity)
 
 }

@@ -7,11 +7,13 @@ import javax.inject.Inject
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
+/**
+ *   A SharedPreferences util with kotlin delegates
+ */
+
 class AppSharedPrefs @Inject constructor(mPrefs: SharedPreferences){
 
     var selectedThemeMode by mPrefs.data(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-
-
 
     companion object{
 
@@ -50,23 +52,6 @@ inline fun <reified T> SharedPreferences.getData(
     }
 }
 
-inline fun <reified T> SharedPreferences.getDataNullable(
-    key: String,
-    default: T? = null
-): T? {
-    @Suppress("UNCHECKED_CAST")
-    return when (default) {
-        is String? -> getString(key, default) as T?
-        is Int? -> getInt(key, default?:0) as T?
-        is Long? -> getLong(key, default?:0L) as T?
-        is Boolean? -> getBoolean(key, default?:false) as T?
-        is Float? -> getFloat(key, default?:0f) as T?
-        is Set<*>? -> getStringSet(key, default as Set<String>) as T?
-        is MutableSet<*>? -> getStringSet(key, default as MutableSet<String>) as T?
-        else -> throw IllegalArgumentException("generic type not handled")
-    }
-}
-
 /**
  *  Put Data Into Pref
  */
@@ -85,25 +70,6 @@ inline fun <reified T> SharedPreferences.putData(
             is Float -> putFloat(key, data)
             is Set<*> -> putStringSet(key, data as Set<String>)
             is MutableSet<*> -> putStringSet(key, data as MutableSet<String>)
-            else -> throw IllegalArgumentException("generic type not handled")
-        }
-    }.apply()
-}
-
-inline fun <reified T> SharedPreferences.putDataNullable(
-    key: String,
-    data: T? = null
-) {
-    @Suppress("UNCHECKED_CAST")
-    this.edit().apply {
-        when (data) {
-            is String? -> putString(key, data)
-            is Int? -> putInt(key, data?:0)
-            is Long? -> putLong(key, data?:0L)
-            is Boolean? -> putBoolean(key, data?:false)
-            is Float? -> putFloat(key, data?:0f)
-            is Set<*>? -> putStringSet(key, data as Set<String>?)
-            is MutableSet<*>? -> putStringSet(key, data as MutableSet<String>?)
             else -> throw IllegalArgumentException("generic type not handled")
         }
     }.apply()

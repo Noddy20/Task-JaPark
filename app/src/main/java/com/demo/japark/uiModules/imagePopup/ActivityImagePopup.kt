@@ -2,20 +2,14 @@ package com.demo.japark.uiModules.imagePopup
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.WindowManager
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.demo.japark.R
 import com.demo.japark.databinding.ActivityImagePopupBinding
 import com.demo.japark.models.sealed.SealedNetState
 import com.demo.japark.uiModules.base.BaseAppCompatActivity
-import com.demo.japark.utils.GlideApp
 import com.demo.japark.utils.extFunctions.coroutineViewBinding.launchViewClick
 import com.demo.japark.utils.extFunctions.invoke
 import com.demo.japark.utils.extFunctions.toast
@@ -53,8 +47,6 @@ class ActivityImagePopup : BaseAppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        supportPostponeEnterTransition()
-
         val title = intent.getStringExtra(EXTRA_KEY_TITLE)
         val url = intent.getStringExtra(EXTRA_KEY_IMAGE_URL)
 
@@ -63,16 +55,8 @@ class ActivityImagePopup : BaseAppCompatActivity() {
             finish()
         }else{
             mDataBinding{
-
-               /* getColorAttrCompat(R.attr.colorPrimary).let { bgColor ->
-                    tvFoodName.setBackgroundColor(bgColor)
-                    ivItem.setBackgroundColor(bgColor)
-                }*/
-                //tvFoodName.setTextColor(getColorAttrCompat(R.attr.colorTextMain))
-
-
                 bTitle = title
-                loadImage(url)
+                bUrl = url
 
                 ivClose.launchViewClick(lifecycleScope){
                     onBackPressed()
@@ -94,42 +78,6 @@ class ActivityImagePopup : BaseAppCompatActivity() {
             return true
         }
         return super.onTouchEvent(event)
-    }
-
-    private fun ActivityImagePopupBinding.loadImage(url: String){
-
-        //For SharedElement Transition
-
-        GlideApp.with(this@ActivityImagePopup)
-            .asDrawable()
-            .load(url)
-            .placeholder(R.drawable.placeholder)
-            .thumbnail(0.5f)
-            .centerCrop()
-            .dontAnimate()
-            .addListener(object : RequestListener<Drawable> {
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    supportStartPostponedEnterTransition()
-                    return false
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    dataSource: DataSource?,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    supportStartPostponedEnterTransition()
-                    return false
-                }
-            })
-            .into(ivItem)
     }
 
 }

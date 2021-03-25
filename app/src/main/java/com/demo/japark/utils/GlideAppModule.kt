@@ -15,6 +15,10 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.signature.ObjectKey
 import com.demo.japark.R
 
+/**
+ *   Custom Glide module to set default request options and cache size
+ */
+
 @GlideModule
 class GlideAppModule : AppGlideModule() {
 

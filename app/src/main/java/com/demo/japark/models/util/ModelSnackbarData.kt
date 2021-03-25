@@ -12,7 +12,7 @@ data class ModelSnackbarData(
     var msg: String,
     var coordinatorLayout: CoordinatorLayout,
     @ColorRes var bgColor: Int = R.color.colorBgSnackBar,
-    @ColorRes var txtColor: Int = R.color.colorTextWhite,
+    @ColorRes var txtColor: Int = R.color.colorWhite,
     var length: Int = Snackbar.LENGTH_SHORT,
     var action: String? = null
 ) : BaseModel

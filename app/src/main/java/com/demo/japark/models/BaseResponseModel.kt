@@ -2,6 +2,11 @@ package com.demo.japark.models
 
 import androidx.annotation.Keep
 
+/**
+ *   BaseResponse Model to wrap API response models
+ *   To use the status and message for updating the UI
+ */
+
 @Keep
 data class BaseResponse<out T>(val status: ResponseStatus, val data: T?, val message: String?) {
 

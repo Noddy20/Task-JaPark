@@ -12,6 +12,10 @@ import com.demo.japark.utils.extFunctions.inflateBinding
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+/**
+ *    This file is not used in the project because there is no fragment
+ */
+
 abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
 
     @Inject

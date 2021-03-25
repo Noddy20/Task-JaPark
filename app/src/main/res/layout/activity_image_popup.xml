@@ -3,8 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="com.demo.japark.R"/>
+
         <variable
             name="bTitle"
+            type="String" />
+        <variable
+            name="bUrl"
             type="String" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,6 +57,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            bind_glidePlaceholder="@{R.drawable.placeholder}"
+            bind_glideError="@{R.drawable.placeholder}"
+            bind_glideUrl="@{bUrl}"
+            bind_glideIsCenterCrop="@{true}"
             android:id="@+id/ivItem"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"

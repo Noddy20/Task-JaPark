@@ -7,6 +7,10 @@ import com.demo.japark.utils.GlideApp
 
 object AdapterImageBinding {
 
+    /**
+     *   Binding function to load image with glide
+     */
+
     @JvmStatic
     @BindingAdapter(value = [
         "bind_glideUrl",

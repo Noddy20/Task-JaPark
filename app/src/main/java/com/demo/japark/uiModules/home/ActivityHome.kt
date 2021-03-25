@@ -34,6 +34,7 @@ class ActivityHome : BaseAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mDataBinding{
+            // Extension function to setup the toolbar
             setupToolbar(includeToolbar.toolbar, getString(R.string.title_home), false)
 
             rvCities.adapter = mAdapterCities
@@ -75,6 +76,8 @@ class ActivityHome : BaseAppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Clear Cache option is added to clear the data from persisted storage
+        // To test the API error handling
         if (item.itemId == R.id.menuItemClearCache){
             mViewModel.clearPersistedData {
                 toast(R.string.msg_cache_cleared)

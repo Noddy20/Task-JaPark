@@ -36,15 +36,29 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         buildConfigField 'String', 'BASE_URL_API', '\"' + appConf.serverUrl +'\"'
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")                                   // To export RoomDB schema
+            }
+        }
+
     }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            manifestPlaceholders = [appLabel: "JaPark"]
         }
         debug {
             signingConfig signingConfigs.debug
+
+            //To differentiate between release and debug build
+            manifestPlaceholders = [appLabel: "JaPark - Dev"]
+            applicationIdSuffix '.dev'
+            versionNameSuffix '-dev'
         }
     }
     compileOptions {
@@ -54,7 +68,9 @@ android {
     kotlinOptions {
         useIR = true
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-        freeCompilerArgs += [                                                                       // For Kotlin Coroutines Experiment Features
+
+        // For Kotlin Coroutines Experiment Features
+        freeCompilerArgs += [
             "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-Xuse-experimental=kotlinx.coroutines.ObsoleteCoroutinesApi",
             "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
@@ -130,8 +146,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
 
     implementation "androidx.room:room-runtime:$versions.roomDB"
-    kapt "androidx.room:room-compiler:$versions.roomDB"                                             // Kotlin Extensions and Coroutines support for Room
-    implementation "androidx.room:room-ktx:$versions.roomDB"
+    kapt "androidx.room:room-compiler:$versions.roomDB"
+    implementation("androidx.room:room-ktx:$versions.roomDB"){
+        because("Kotlin Extensions and Coroutines support for Room")
+    }
 
     /*  Android JetPack Modules Ends */
 
@@ -148,14 +166,18 @@ dependencies {
     // Network/Api calling Dependencies
     implementation(platform("com.squareup.okhttp3:okhttp-bom:$versions.okHttp"))
     implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
+    implementation("com.squareup.okhttp3:logging-interceptor"){
+        because("To log network request/response in debug version")
+    }
 
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$versions.kxSzRetrofitAdapter"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$versions.retrofitCortAdapter"
 
     // Json Parsing
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$versions.kotlinxSerialization"
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$versions.kotlinxSerialization"){
+        because("Just like Gson and Moshi, kotlinx-serialization is a new library for json parsing based on kotlin")
+    }
 
     // Logging
     implementation "com.jakewharton.timber:timber:$versions.timber"

@@ -1,5 +1,6 @@
 package com.demo.japark.data.room.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.demo.japark.models.data.ModelJapanFood
 
@@ -17,5 +18,8 @@ interface FoodsDAO {
 
     @Query("SELECT * FROM japan_foods")
     suspend fun loadAllFoods(): List<ModelJapanFood>
+
+    @Query("SELECT * FROM japan_foods WHERE name=:name ")
+    fun loadSingle(name: String): LiveData<ModelJapanFood>
 
 }

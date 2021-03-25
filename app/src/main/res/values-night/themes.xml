@@ -11,10 +11,12 @@
 
         <item name="colorTextDark">@color/colorLightX</item>
         <item name="colorTextMain">@color/colorTextDark</item>
-        <item name="colorTextPrimary">@color/colorPrimary</item>
+        <item name="colorTextPrimary">@color/colorDark</item>
 
     </style>
 
+
+    <!-- Theme for Dialog-Style Activity -->
 
     <style name="Theme.JaPark.DialogActivity" parent="Theme.MaterialComponents.Dialog">
         <item name="windowActionBar">false</item>

@@ -2,6 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="com.demo.japark.R"/>
+
         <variable
             name="bModel"
             type="com.demo.japark.models.data.ModelJapanCity" />
@@ -31,6 +33,10 @@
                 android:transitionName="@string/transition_name_item_detail_img"
                 app:srcCompat="@drawable/placeholder"
                 android:contentDescription="@{bModel.name ?? ``}"
+                bind_glidePlaceholder="@{R.drawable.placeholder}"
+                bind_glideError="@{R.drawable.placeholder}"
+                bind_glideUrl="@{bModel.image ?? ``}"
+                bind_glideIsCenterCrop="@{true}"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"/>
 

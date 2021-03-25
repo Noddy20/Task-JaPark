@@ -12,6 +12,10 @@ import com.demo.japark.models.util.ModelSnackbarData
 import com.demo.japark.utils.extFunctions.coroutineViewBinding.launchViewClick
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ *   Extension function to show custom snackbar
+ */
+
 fun AppCompatActivity.showSnackBar(mModel: ModelSnackbarData, mActionListener: (() -> Unit)? = null): Pair<Snackbar, ContentCustomSnackbarLayoutBinding>? {
     var pair: Pair<Snackbar, ContentCustomSnackbarLayoutBinding>? = null
     mModel.runCatching {

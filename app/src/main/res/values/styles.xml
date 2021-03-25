@@ -2,17 +2,13 @@
 <resources>
 
     <!-- View Click Style-->
+
     <style name="Theme.JaPark.ClickableWithinBorder">
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
-    <!--<style name="Theme.JaPark.ClickableBorderLess">
-        <item name="android:clickable">true</item>
-        <item name="android:focusable">true</item>
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-    </style>-->
 
     <!-- AppBar, Toolbar and PopupMenu Styles -->
 
@@ -31,7 +27,6 @@
         <item name="android:popupBackground">?colorPrimaryVariant</item>
     </style>
 
-    <!-- Theme: AppBar -->
     <style name="Theme.JaPark.AppBarLayout" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
         <!-- Customize the AppBarLayout -->
         <item name="android:textColorPrimary">?colorTextMain</item>
@@ -39,14 +34,9 @@
         <item name="actionMenuTextColor">?colorTextMain</item>
     </style>
 
-    <!--
-    <style name="Theme.JaPark.TitleTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?colorTextMain</item>
-    </style>
-    -->
 
 
-    <!-- Dialog Styles -->
+    <!-- Material Dialog Styles -->
 
     <style name="Theme.JaPark.AlertDialogMaterialTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="colorSurface">?colorPrimary</item>

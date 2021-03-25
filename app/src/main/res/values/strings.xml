@@ -1,28 +1,48 @@
 <resources>
+
+    <!-- App Strings -->
     <string name="app_name">JaPark</string>
-    <string name="msg_you_are_online">You are back online</string>
-    <string name="msg_you_are_offline">You are offline!</string>
+
+
+    <!-- Titles -->
     <string name="title_demo_app">Demo App</string>
     <string name="title_change_theme">Change Theme</string>
     <string name="title_home">Home</string>
     <string name="title_select_theme">Select Theme :</string>
-    <string name="action_select">Select</string>
-    <string name="action_cancel">Cancel</string>
     <string name="title_cities_japan">Main Cities in Japan</string>
     <string name="title_japanese_food">Most Popular Japanese Food</string>
-    <string name="cont_desc_details">Click for details</string>
-    <string name="err_msg_general">Something went wrong!</string>
-    <string name="msg_loading_data">Loading data…</string>
-    <string name="msg_success">Success</string>
-    <string name="lottie_other_error_file_name">lottie_other_error.json</string>
-    <string name="lottie_empty_error_file_name">lottie_empty_box.json</string>
     <string name="title_clear_cache">Clear Cache</string>
-    <string name="msg_cache_cleared">Cache Cleared</string>
-    <string name="err_msg_no_data">No data found!</string>
     <string name="title_city">City Details</string>
 
+
+    <!-- Actions -->
+    <string name="action_select">Select</string>
+    <string name="action_cancel">Cancel</string>
+
+
+    <!-- Messages -->
+    <string name="msg_you_are_online">You are back online</string>
+    <string name="msg_you_are_offline">You are offline!</string>
+    <string name="msg_loading_data">Loading data…</string>
+    <string name="msg_success">Success</string>
+    <string name="msg_cache_cleared">Cache Cleared</string>
+
+
+    <!-- Error Messages -->
+    <string name="err_msg_general">Something went wrong!</string>
+    <string name="err_msg_no_data">No data found!</string>
+
+
+    <!-- Content Description For Accessibility -->
+    <string name="cont_desc_details">Click for details</string>
+    <string name="cont_desc_close_button">Close button</string>
+    <string name="cont_desc_app_logo">App logo</string>
+
+
+    <!-- Variables/Resources used in app -->
+    <string name="lottie_other_error_file_name">lottie_other_error.json</string>
+    <string name="lottie_empty_error_file_name">lottie_empty_box.json</string>
     <string name="transition_name_item_img">Item_Image_Transition_%1$s</string>
     <string name="transition_name_item_detail_img">Item_Detail_Image_Transition</string>
-    <string name="cont_desc_close_button">Close button</string>
 
 </resources>

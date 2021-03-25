@@ -31,6 +31,7 @@ class MainApp: Application() {
 
         Thread.setDefaultUncaughtExceptionHandler(myExceptionHandler) // Init Uncaught Exception Handler
 
+        // Set the selected theme
         AppCompatDelegate.setDefaultNightMode(mAppPrefs.selectedThemeMode)
 
         // Init InternetUtil Observer
