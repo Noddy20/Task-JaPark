@@ -61,13 +61,5 @@ class GlideAppModule : AppGlideModule() {
             }
         }
 
-        fun getVectorRequestOptions(
-            isCenterCrop: Boolean = true,
-            @DrawableRes @ColorRes placeHolderResId: Int? = R.color.colorTransparent,
-            @DrawableRes @ColorRes errorResId: Int? = R.color.colorTransparent,
-            mSkipMemoryCache: Boolean = false
-        ) = getRequestOptions(isCenterCrop, placeHolderResId, errorResId, mSkipMemoryCache).apply {
-            diskCacheStrategy(DiskCacheStrategy.NONE)
-        }
     }
 }

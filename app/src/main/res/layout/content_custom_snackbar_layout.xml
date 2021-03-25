@@ -9,7 +9,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_5sdp"
+        android:padding="@dimen/dp_padding_vertical_message"
         android:id="@+id/rowRootView"
         bind_backgroundColorRes="@{bModel.bgColor ,default=@color/colorBgSnackBar}"
         >
@@ -24,7 +24,7 @@
             android:id="@+id/snackTitle"
             android:layout_marginEnd="@dimen/_5sdp"
             android:layout_marginStart="@dimen/_5sdp"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/sp_text_h3"
             tools:textColor="@color/colorWhite"
             bind_textColorRes="@{bModel.txtColor ,default=@color/colorTextWhite}"
             />

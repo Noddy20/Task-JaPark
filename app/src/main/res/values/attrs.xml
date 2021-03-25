@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="colorTextDark" format="reference"/>
-    <attr name="colorTextMain" format="reference"/>
-    <attr name="colorTextPrimary" format="reference"/>
+    <attr name="colorTextDark" format="color|reference"/>
+    <attr name="colorTextMain" format="color|reference"/>
+    <attr name="colorTextPrimary" format="color|reference"/>
 
 </resources>

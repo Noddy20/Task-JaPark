@@ -16,6 +16,3 @@ fun Context.toastLong(mMsg: String) {
     Toast.makeText(this, mMsg, Toast.LENGTH_LONG).show()
 }
 
-fun Context.toastLong(@StringRes mResId: Int) {
-    toastLong(getString(mResId))
-}

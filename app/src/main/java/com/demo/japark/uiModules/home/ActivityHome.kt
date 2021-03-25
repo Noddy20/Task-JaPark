@@ -12,10 +12,9 @@ import com.demo.japark.models.ResponseStatus
 import com.demo.japark.models.data.ModelMainResponse
 import com.demo.japark.models.sealed.SealedNetState
 import com.demo.japark.uiModules.base.BaseAppCompatActivity
-import com.demo.japark.utils.extFunctions.invoke
-import com.demo.japark.utils.extFunctions.setupToolbar
-import com.demo.japark.utils.extFunctions.showNetworkStateSnackBar
-import com.demo.japark.utils.extFunctions.toast
+import com.demo.japark.uiModules.gotoCityDetailsActivity
+import com.demo.japark.uiModules.gotoImagePopupActivity
+import com.demo.japark.utils.extFunctions.*
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject
@@ -38,10 +37,21 @@ class ActivityHome : BaseAppCompatActivity() {
             setupToolbar(includeToolbar.toolbar, getString(R.string.title_home), false)
 
             rvCities.adapter = mAdapterCities
+            mAdapterCities.onClickItem = {modelCity, iv ->
+                gotoCityDetailsActivity(modelCity,
+                    makeSceneTransitionAnimationBundle(iv, getString(R.string.transition_name_item_detail_img)))
+            }
+
             rvFood.adapter = mAdapterFoods
+            mAdapterFoods.onClickItem = {modelFood, iv->
+                gotoImagePopupActivity(modelFood.name, modelFood.image,
+                    makeSceneTransitionAnimationBundle(iv, getString(R.string.transition_name_item_detail_img)))
+            }
 
             swipeRefreshLayout.setOnRefreshListener {
-                mViewModel.callMainDataApi()
+                mViewModel.clearPersistedData {
+                    mViewModel.callMainDataApi()
+                }
             }
 
             setDataObserver()
@@ -66,8 +76,9 @@ class ActivityHome : BaseAppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menuItemClearCache){
-            mViewModel.clearPersistedData()
-            toast(R.string.msg_cache_cleared)
+            mViewModel.clearPersistedData {
+                toast(R.string.msg_cache_cleared)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

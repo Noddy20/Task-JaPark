@@ -1,11 +1,13 @@
 package com.demo.japark.utils.extFunctions
 
+import android.app.Activity
 import android.os.Build
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
-import com.demo.japark.databinding.BarToolbarLayoutBinding
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import com.demo.japark.uiModules.base.BaseAppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
@@ -25,20 +27,6 @@ fun AppCompatActivity.setFullScreen() {
                     or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                     or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                     or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
-        }
-    }
-}
-
-fun AppCompatActivity.exitFullScreen() {
-    window.apply {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            setDecorFitsSystemWindows(true)
-            insetsController?.show(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
-        } else {
-            @Suppress("DEPRECATION")
-            decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
         }
     }
 }
@@ -63,3 +51,6 @@ fun BaseAppCompatActivity.setupToolbar(toolbar: MaterialToolbar, titleStr: Strin
         }
     }
 }
+
+fun Activity.makeSceneTransitionAnimationBundle(view: View, transitionName: String? = null) = ActivityOptionsCompat.makeSceneTransitionAnimation(
+        this, view, transitionName?:ViewCompat.getTransitionName(view)?:"").toBundle()

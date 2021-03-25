@@ -10,6 +10,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+        <!-- enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+
         <item name="toolbarStyle">@style/Theme.JaPark.Toolbar</item>
         <item name="actionBarTheme">@style/Theme.JaPark.AppBarLayout</item>
         <item name="actionOverflowButtonStyle">@style/Theme.JaPark.ActionOverflowButtonStyle</item>
@@ -34,4 +37,18 @@
         <item name="colorTextPrimary">@color/colorWhite</item>
 
     </style>
+
+    <style name="Theme.JaPark.DialogActivity" parent="Base.Theme.MaterialComponents.Light.Dialog">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:windowBackground">@color/colorTransparent</item>
+
+        <item name="colorPrimary">@color/colorLight</item>
+        <item name="colorTextMain">@color/colorTextLight</item>
+
+    </style>
+
 </resources>

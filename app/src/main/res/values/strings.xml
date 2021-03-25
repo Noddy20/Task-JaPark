@@ -19,4 +19,10 @@
     <string name="title_clear_cache">Clear Cache</string>
     <string name="msg_cache_cleared">Cache Cleared</string>
     <string name="err_msg_no_data">No data found!</string>
+    <string name="title_city">City Details</string>
+
+    <string name="transition_name_item_img">Item_Image_Transition_%1$s</string>
+    <string name="transition_name_item_detail_img">Item_Detail_Image_Transition</string>
+    <string name="cont_desc_close_button">Close button</string>
+
 </resources>

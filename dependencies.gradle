@@ -47,7 +47,7 @@ ext.versions = [
         sdpSSP                  : '1.0.6',
 
         // Image Processing
-        glide                   : '4.11.0',
+        glide                   : '4.12.0',
 
         // Android JetPack Modules
         lifecycle                : '2.3.0',
@@ -65,7 +65,7 @@ ext.versions = [
         // Network/Api calls
         okHttp                  : '4.9.0',
         retrofitVersion         : '2.9.0',
-        retrofitCortAdapter     : '0.9.2',                                                          //Coroutines Adapter
+        retrofitCortAdapter     : '0.9.2',                                                          //Coroutines Adapter For Retrofit
         kxSzRetrofitAdapter     : '0.8.0',                                                          //Kotlinx Serialization Adapter
 
         // Json Parsing

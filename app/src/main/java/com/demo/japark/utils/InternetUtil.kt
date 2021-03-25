@@ -70,10 +70,6 @@ class InternetUtil @Inject constructor(@ApplicationContext private val appContex
         }
     }
 
-    fun unregisterObserver() {
-        connMan?.unregisterNetworkCallback(networkStateObject)
-    }
-
     private fun networkRequestBuilder(): NetworkRequest {
         return NetworkRequest.Builder()
             .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)

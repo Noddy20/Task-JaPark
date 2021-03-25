@@ -11,6 +11,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/dp_default_screen_padding"
             android:visibility="invisible"
             tools:visibility="visible"
             android:id="@+id/clAppNames">

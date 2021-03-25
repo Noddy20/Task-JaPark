@@ -16,12 +16,6 @@ object AdapterViewBinding {
     }
 
     @JvmStatic
-    @BindingAdapter(value = ["bind_isInvisible"], requireAll = false)
-    fun setViewBackgroundColor(view: View, isInvisible: Boolean) {
-        view.isInvisible = isInvisible
-    }
-
-    @JvmStatic
     @BindingAdapter(value = ["bind_startShimmer"], requireAll = false)
     fun startStopShimmerView(view: ShimmerFrameLayout, startShimmer: Boolean) {
         if (startShimmer) {

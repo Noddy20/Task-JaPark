@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.view.Menu
 import android.view.MenuItem
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -89,7 +88,7 @@ abstract class BaseAppCompatActivity : AppCompatActivity() {
     abstract fun networkStatChanged(netState: SealedNetState)
 
 
-    protected fun openThemeChooser(){
+    private fun openThemeChooser(){
         mDialogs.showCountDownSelectDialog(mAppPrefs.selectedThemeMode){
             mAppPrefs.selectedThemeMode = it
             AppCompatDelegate.setDefaultNightMode(it)

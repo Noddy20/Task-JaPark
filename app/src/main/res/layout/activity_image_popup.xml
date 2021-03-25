@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="bTitle"
+            type="String" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".uiModules.imagePopup.ActivityImagePopup">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:id="@+id/tvFoodName"
+            tools:text="@string/app_name"
+            android:text="@{bTitle ?? ``}"
+            android:gravity="center_vertical"
+            android:textColor="?colorTextMain"
+            app:layout_constraintBottom_toTopOf="@id/ivItem"
+            app:layout_constraintStart_toStartOf="@id/ivItem"
+            app:layout_constraintEnd_toEndOf="@id/ivItem"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/sp_text_h2"
+            android:background="?colorPrimary"
+            />
+
+        <ImageView
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:id="@+id/ivClose"
+            app:layout_constraintBottom_toTopOf="@id/ivItem"
+            app:layout_constraintEnd_toEndOf="@id/ivItem"
+            app:srcCompat="@drawable/ic_close"
+            android:padding="@dimen/_12sdp"
+            app:tint="?colorTextMain"
+            style="@style/Theme.JaPark.ClickableWithinBorder"
+            android:contentDescription="@string/cont_desc_close_button"
+            android:background="?colorPrimary"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_260sdp"
+            android:layout_height="@dimen/_260sdp"
+            android:background="?colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/ivItem"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:fitsSystemWindows="true"
+            android:transitionName="@string/transition_name_item_detail_img"
+            app:srcCompat="@drawable/placeholder"
+            android:contentDescription="@{bTitle ?? ``}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

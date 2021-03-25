@@ -52,24 +52,24 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:paddingBottom="@dimen/_16sdp"
-                            android:paddingHorizontal="@dimen/_16sdp">
+                            android:paddingBottom="@dimen/dp_default_screen_padding"
+                            android:paddingHorizontal="@dimen/dp_default_screen_padding">
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textColor="?colorTextDark"
                                 android:text="@string/title_cities_japan"
-                                android:textSize="@dimen/_12ssp"
-                                android:paddingVertical="@dimen/_5sdp"
+                                android:textSize="@dimen/sp_text_h3"
                                 />
                             <com.mlsdev.animatedrv.AnimatedRecyclerView
                                 android:id="@+id/rvCities"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:layoutManagerType="linear"
-                                app:animationDuration="600"
+                                app:animationDuration="@integer/rv_anim_duration"
                                 android:nestedScrollingEnabled="false"
                                 app:layoutAnimation="@anim/layout_animation_from_bottom"
+                                android:paddingTop="@dimen/dp_margin_list_item"
                                 android:clipToPadding="false"
                                 />
                             <com.google.android.material.textview.MaterialTextView
@@ -77,16 +77,15 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="?colorTextDark"
                                 android:text="@string/title_japanese_food"
-                                android:textSize="@dimen/_12ssp"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:paddingVertical="@dimen/_5sdp"
+                                android:textSize="@dimen/sp_text_h3"
+                                android:layout_marginBottom="@dimen/dp_margin_list_item"
                                 />
                             <com.mlsdev.animatedrv.AnimatedRecyclerView
                                 android:id="@+id/rvFood"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:layoutManagerType="linear"
-                                app:animationDuration="600"
+                                app:animationDuration="@integer/rv_anim_duration"
                                 android:nestedScrollingEnabled="false"
                                 app:layoutAnimation="@anim/layout_animation_from_scale"
                                 android:clipToPadding="false"
@@ -105,7 +104,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginBottom="@dimen/_10sdp"
                         app:lottie_enableMergePathsForKitKatAndAbove="true"
                         app:lottie_autoPlay="false"
                         app:lottie_loop="true"
@@ -122,8 +120,8 @@
                         android:gravity="center"
                         android:textColor="?colorTextMain"
                         android:text="@string/title_cities_japan"
-                        android:textSize="@dimen/_12ssp"
-                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/sp_text_h3"
+                        android:padding="@dimen/dp_padding_vertical_message"
                         android:visibility="gone"
                         />
 
@@ -138,7 +136,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         android:padding="16dp"
-                        app:shimmer_duration="800"
+                        app:shimmer_duration="@integer/shimmer_duration"
                         app:shimmer_auto_start="false"
                         android:id="@+id/shimmerView"
                         tools:visibility="gone"

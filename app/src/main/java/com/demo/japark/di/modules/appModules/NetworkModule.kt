@@ -40,7 +40,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient) = Retrofit.Builder()
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .client(okHttpClient)
         .baseUrl(BuildConfig.BASE_URL_API)
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -53,6 +53,6 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun getRetrofitApiInterface(retrofit: Retrofit) = retrofit.create(RetrofitApiClient::class.java)
+    fun getRetrofitApiInterface(retrofit: Retrofit): RetrofitApiClient = retrofit.create(RetrofitApiClient::class.java)
 
 }

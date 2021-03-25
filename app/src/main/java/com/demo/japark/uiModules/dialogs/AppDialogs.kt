@@ -15,17 +15,11 @@ import javax.inject.Inject
 class AppDialogs @Inject constructor(private val mActivity: Activity) {
 
     companion object{
-        private val TAG by lazy { "AppDialogs" }
     }
 
-    var mDialog: Dialog? = null
+    private var mDialog: Dialog? = null
 
-    val isShowingDialog: Boolean
-        get() {
-            return mDialog?.isShowing?:false
-        }
-
-    fun show() {
+    private fun show() {
         mDialog?.runCatching {
             if (!mActivity.isFinishing) show()
         }

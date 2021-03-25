@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.JaPark" parent="Theme.JaPark.BaseTheme">
         <!-- Primary brand color. -->
@@ -14,4 +14,16 @@
         <item name="colorTextPrimary">@color/colorPrimary</item>
 
     </style>
+
+
+    <style name="Theme.JaPark.DialogActivity" parent="Theme.MaterialComponents.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:windowBackground">@color/colorTransparent</item>
+
+        <item name="colorPrimary">@color/colorDark</item>
+        <item name="colorTextMain">@color/colorTextDark</item>
+    </style>
+
 </resources>

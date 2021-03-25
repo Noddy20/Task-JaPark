@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="dp_zero">0dp</dimen>
+    <dimen name="dp_default_screen_padding">@dimen/_16sdp</dimen>
+    <dimen name="dp_margin_top_subtitle">@dimen/_15sdp</dimen>
+    <dimen name="dp_padding_vertical_message">@dimen/_5sdp</dimen>
+    <dimen name="dp_margin_list_item">@dimen/_16sdp</dimen>
+    <dimen name="dp_height_collapsing_toolbar">@dimen/_200sdp</dimen>
+    <dimen name="dp_card_radius_item">@dimen/_15sdp</dimen>
+    <dimen name="dp_height_city_item">@dimen/_90sdp</dimen>
+    <dimen name="dp_height_food_item">@dimen/_70sdp</dimen>
+    <dimen name="dp_margin_text_item">@dimen/_10sdp</dimen>
+
+    <dimen name="sp_text_h1">@dimen/_16ssp</dimen>
+    <dimen name="sp_text_h2">@dimen/_14ssp</dimen>
+    <dimen name="sp_text_h3">@dimen/_12ssp</dimen>
+
 </resources>

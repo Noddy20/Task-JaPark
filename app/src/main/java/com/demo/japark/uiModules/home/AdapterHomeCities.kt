@@ -2,6 +2,7 @@ package com.demo.japark.uiModules.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.recyclerview.widget.ListAdapter
 import com.demo.japark.databinding.ItemHomeCityLayoutBinding
@@ -13,6 +14,8 @@ import javax.inject.Inject
 
 class AdapterHomeCities @Inject constructor(private val mLifecycleScope: LifecycleCoroutineScope) :
         ListAdapter<ModelJapanCity, AdapterHomeCities.MyViewHolder>(ModelJapanCity.DIFF_UTIL) {
+
+    var onClickItem: ((ModelJapanCity, ImageView) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
             MyViewHolder(ItemHomeCityLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -27,7 +30,7 @@ class AdapterHomeCities @Inject constructor(private val mLifecycleScope: Lifecyc
         init {
             mDataBinding{
                 itemRootView.launchViewClick(mLifecycleScope) {
-
+                    onClickItem?.invoke(getItem(adapterPosition), ivCity)
                 }
             }
         }

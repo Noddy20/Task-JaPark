@@ -29,14 +29,6 @@ inline fun <reified T: Any> SharedPreferences.data(defaultValue: T):
     override fun setValue(thisRef: Any, property: KProperty<*>, value: T) = putData(property.name, value)
 }
 
-inline fun <reified T: Any?> SharedPreferences.dataNullable(defaultValue: T? = null):
-        ReadWriteProperty<Any, T?> = object : ReadWriteProperty<Any, T?> {
-
-    override fun getValue(thisRef: Any, property: KProperty<*>) = getDataNullable(property.name, defaultValue)
-
-    override fun setValue(thisRef: Any, property: KProperty<*>, value: T?) = putDataNullable(property.name, value)
-}
-
 /**
  *  Get Data From Pref
  */
