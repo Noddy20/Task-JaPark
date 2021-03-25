@@ -25,9 +25,6 @@ JaPark – Project Structure
 * utils : contains the util classes, extension functions, delegates, and DataBinding adapters
 
 
--------------------------------------------------
-JaPark – Screenshots
--------------------------------------------------
 
 <div style="display:flex;">
 <img alt="App image" src="assets/01.png" width="30%">
