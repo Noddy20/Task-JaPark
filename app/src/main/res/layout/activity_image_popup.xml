@@ -17,57 +17,64 @@
         android:layout_height="match_parent"
         tools:context=".uiModules.imagePopup.ActivityImagePopup">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="0dp"
-            android:layout_height="?actionBarSize"
-            android:id="@+id/tvFoodName"
-            tools:text="@string/app_name"
-            android:text="@{bTitle ?? ``}"
-            android:gravity="center_vertical"
-            android:textColor="?colorTextMain"
-            app:layout_constraintBottom_toTopOf="@id/ivItem"
-            app:layout_constraintStart_toStartOf="@id/ivItem"
-            app:layout_constraintEnd_toEndOf="@id/ivItem"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textSize="@dimen/sp_text_h2"
-            android:background="?colorPrimary"
-            />
-
-        <ImageView
-            android:layout_width="?actionBarSize"
-            android:layout_height="?actionBarSize"
-            android:id="@+id/ivClose"
-            app:layout_constraintBottom_toTopOf="@id/ivItem"
-            app:layout_constraintEnd_toEndOf="@id/ivItem"
-            app:srcCompat="@drawable/ic_close"
-            android:padding="@dimen/_12sdp"
-            app:tint="?colorTextMain"
-            style="@style/Theme.JaPark.ClickableWithinBorder"
-            android:contentDescription="@string/cont_desc_close_button"
-            android:background="?colorPrimary"
-            />
-
-        <ImageView
-            android:layout_width="@dimen/_260sdp"
-            android:layout_height="@dimen/_260sdp"
-            android:background="?colorPrimary"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_250sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            bind_glidePlaceholder="@{R.drawable.placeholder}"
-            bind_glideError="@{R.drawable.placeholder}"
-            bind_glideUrl="@{bUrl}"
-            bind_glideIsCenterCrop="@{true}"
-            android:id="@+id/ivItem"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:fitsSystemWindows="true"
-            android:transitionName="@string/transition_name_item_detail_img"
-            app:srcCompat="@drawable/placeholder"
-            android:contentDescription="@{bTitle ?? ``}"/>
+            android:background="?colorPrimary"
+            >
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="?actionBarSize"
+                android:id="@+id/tvFoodName"
+                tools:text="@string/app_name"
+                android:text="@{bTitle ?? ``}"
+                android:gravity="center_vertical"
+                android:textColor="?colorTextMain"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivClose"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="@dimen/sp_text_h2"
+                />
+
+            <ImageView
+                android:layout_width="?actionBarSize"
+                android:layout_height="?actionBarSize"
+                android:id="@+id/ivClose"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_close"
+                android:padding="@dimen/_12sdp"
+                app:tint="?colorTextMain"
+                style="@style/Theme.JaPark.ClickableWithinBorder"
+                android:contentDescription="@string/cont_desc_close_button"
+                />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?colorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFoodName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                bind_glidePlaceholder="@{R.drawable.placeholder}"
+                bind_glideError="@{R.drawable.placeholder}"
+                bind_glideUrl="@{bUrl}"
+                bind_glideIsCenterCrop="@{true}"
+                android:id="@+id/ivItem"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:transitionName="@string/transition_name_item_detail_img"
+                app:srcCompat="@drawable/placeholder"
+                android:contentDescription="@{bTitle ?? ``}"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
