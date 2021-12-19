@@ -19,7 +19,7 @@ object ViewModelModules {
 
     @Provides
     @ActivityRetainedScoped
-    fun provideDefaultExceptionHandler(@ApplicationContext mAppContext: Context,
+    fun provideRepoHome(@ApplicationContext mAppContext: Context,
                                        mInternetUtil: InternetUtil,
                                        mRetrofitClient: RetrofitApiClient,
                                        mCitiesDb: CitiesDatabase,
